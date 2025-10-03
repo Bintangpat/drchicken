@@ -106,7 +106,7 @@ export default function Home() {
               untuk semua kalangan
             </span>
           </p>
-          <p className="h-30 w-full text-center text-sm text-neutral-500 md:h-40 md:w-2/5 md:text-xl">
+          <p className="h-30 w-full text-center text-sm text-wrap text-neutral-500 md:line-clamp-3 md:w-1/3 md:text-left">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
