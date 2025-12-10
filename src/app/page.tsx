@@ -3,7 +3,7 @@
 import Image from "next/image";
 import CardList from "@/components/listcardreview";
 import Valuecv from "@/components/valuecv";
-import React, { useState } from "react";
+
 import Baner2 from "@/components/baner2";
 import Menu2 from "@/components/menu2";
 
@@ -61,7 +61,7 @@ export default function Home() {
             <div className="border-t border-neutral-200 pt-8 text-center text-sm text-white">
               © 2025 Dr.Chicken. All rights reserved.
             </div>
-            <div className="   text-center text-sm text-white">
+            <div className="text-center text-sm text-white">
               Supported by Universitas Aisyah Pringsewu.
             </div>
           </div>
