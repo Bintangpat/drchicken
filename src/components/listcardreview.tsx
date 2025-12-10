@@ -39,7 +39,6 @@ export default function CardList() {
   }, []);
 
   // helper untuk memulai/lanjutkan loop dari posisi `from`
-  // ✅ pakai useCallback supaya tidak bikin warning
   const startLoopFrom = useCallback(
     (from = 0) => {
       if (!oneWidth || oneWidth === 0) return;
@@ -60,7 +59,7 @@ export default function CardList() {
         },
       });
     },
-    [oneWidth, x], // dependency aman
+    [oneWidth, x], // FULL_DURATION is a constant, so it's fine to omit
   );
 
   // start otomatis saat width sudah tersedia
@@ -71,7 +70,7 @@ export default function CardList() {
       clearTimeout(t);
       animRef.current?.stop?.();
     };
-  }, [startLoopFrom]);
+  }, [startLoopFrom]); // ✅ Fixed dependency
 
   const handleHoverStart = () => {
     animRef.current?.stop?.(); // freeze di posisi sekarang
