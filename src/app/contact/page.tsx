@@ -2,7 +2,6 @@
 "use client";
 
 import {
-  ShoppingCart,
   Mail,
   Phone,
   MapPin,
@@ -36,39 +35,20 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-red-600">
       {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-8">
-            <button className="text-sm">shop ▼</button>
-            <button className="text-sm">learn ▼</button>
-            <button className="text-sm">subscribe</button>
-          </div>
-
-          <h1 className="text-3xl font-bold tracking-wider">HIPPEAS</h1>
-
-          <div className="flex items-center gap-6">
-            <button className="text-sm">find a store</button>
-            <button className="text-sm">account</button>
-            <button className="relative">
-              <ShoppingCart size={20} />
-              <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs text-white">
-                0
-              </span>
-            </button>
-          </div>
-        </div>
-      </header>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-teal-400 via-green-400 to-yellow-400 py-20">
-        <div className="mx-auto max-w-7xl px-6 text-center">
-          <h2 className="mb-4 text-6xl font-bold text-white">GET IN TOUCH</h2>
-          <p className="mx-auto max-w-2xl text-xl text-white">
-            Have questions? We'd love to hear from you. Send us a message and
-            we'll respond as soon as possible.
-          </p>
+      <div className="bg-gradient-to-b from-red-900 to-red-600 py-20">
+        <div className="mx-auto flex h-100 max-w-7xl flex-col items-center-safe justify-center-safe px-6 text-center">
+          <h2 className="mb-4 text-6xl font-bold text-white">
+            Terdapat pertanyaan lebih lanjut atau masukan serta keluhan?{" "}
+          </h2>
+          <a href="https://wa.me/082238222570">
+            <button className="h-fit w-fit cursor-pointer rounded-2xl bg-white p-2 px-6 text-xl text-red-600">
+              Hubungi kami
+            </button>
+          </a>
         </div>
       </div>
 
@@ -78,34 +58,32 @@ export default function ContactPage() {
           {/* Contact Info Cards */}
           <div className="space-y-6">
             <div className="rounded-2xl bg-white p-8 shadow-lg transition-shadow hover:shadow-xl">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-teal-400 to-teal-500">
+              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-400">
                 <Mail className="text-white" size={28} />
               </div>
-              <h3 className="mb-2 text-xl font-bold">Email Us</h3>
-              <p className="mb-3 text-gray-600">Our team is here to help</p>
-              <div className="font-semibold text-teal-500">
+              <h3 className="mb-2 text-xl font-bold text-red-600">Email Us</h3>
+              <p className="mb-3 text-red-600">Our team is here to help</p>
+              <div className="font-semibold text-red-600">
                 hello@hippeas.com
               </div>
             </div>
 
             <div className="rounded-2xl bg-white p-8 shadow-lg transition-shadow hover:shadow-xl">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-orange-400 to-orange-500">
+              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-400">
                 <Phone className="text-white" size={28} />
               </div>
-              <h3 className="mb-2 text-xl font-bold">Call Us</h3>
-              <p className="mb-3 text-gray-600">Mon-Fri from 8am to 5pm</p>
-              <div className="font-semibold text-orange-500">
-                +1 (234) 567-890
-              </div>
+              <h3 className="mb-2 text-xl font-bold text-red-600">Call Us</h3>
+              <p className="mb-3 text-red-600">Mon-Fri from 8am to 5pm</p>
+              <div className="font-semibold text-red-600">+1 (234) 567-890</div>
             </div>
 
             <div className="rounded-2xl bg-white p-8 shadow-lg transition-shadow hover:shadow-xl">
-              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-purple-400 to-purple-500">
+              <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-400">
                 <MapPin className="text-white" size={28} />
               </div>
-              <h3 className="mb-2 text-xl font-bold">Visit Us</h3>
-              <p className="mb-3 text-gray-600">Come say hello at our office</p>
-              <p className="font-semibold text-purple-500">
+              <h3 className="mb-2 text-xl font-bold text-red-600">Visit Us</h3>
+              <p className="mb-3 text-red-600">Come say hello at our office</p>
+              <p className="font-semibold text-red-600">
                 123 Pea Street
                 <br />
                 Austin, TX 78701
@@ -134,7 +112,7 @@ export default function ContactPage() {
             <div className="rounded-2xl bg-white p-8 shadow-lg md:p-12">
               <h3 className="mb-2 text-3xl font-bold">Send us a message</h3>
               <p className="mb-8 text-gray-600">
-                Fill out the form below and we'll get back to you within 24
+                Fill out the form below and we&apos;ll get back to you within 24
                 hours
               </p>
 
@@ -257,19 +235,6 @@ export default function ContactPage() {
       </div>
 
       {/* FAQ Section */}
-      <div className="bg-gradient-to-r from-yellow-400 to-orange-400 py-16">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h3 className="mb-4 text-4xl font-bold text-white">
-            Frequently Asked Questions
-          </h3>
-          <p className="mb-8 text-xl text-white">
-            Can't find what you're looking for? Check out our FAQ page
-          </p>
-          <button className="rounded-lg bg-white px-8 py-4 font-bold text-orange-600 transition hover:bg-gray-100">
-            View FAQs
-          </button>
-        </div>
-      </div>
     </div>
   );
 }

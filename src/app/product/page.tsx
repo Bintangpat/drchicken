@@ -1,32 +1,29 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 
 export default function ProductPage() {
-  const [quantity, setQuantity] = useState(1);
-  const [purchaseType, setPurchaseType] = useState("one-time");
-
   const relatedProducts = [
     {
       name: "Ayam Medium + Nasi + Sambal",
       price: 10000,
-      img: "/ayamsedangnasi.png",
+      img: "/ASN1.png",
     },
     {
       name: "Ayam Besar + Nasi + Sambal",
       price: 15000,
-      img: "/ayambesarnasi.png",
+      img: "/ABN1.png",
     },
     {
       name: "Ayam Besar",
       price: 10000,
-      img: "/chicken2.webp",
+      img: "/AB1.png",
     },
     {
       name: "Ayam Medium",
       price: 7000,
-      img: "/chicken2.webp",
+      img: "/AS1.png",
     },
     {
       name: "Esteh Medium",
@@ -38,16 +35,6 @@ export default function ProductPage() {
       price: 5000,
       img: "/estehsedang.png",
     },
-  ];
-
-  const badges = [
-    { name: "Non-GMO", icon: "🌾" },
-    { name: "Vegan", icon: "V" },
-    { name: "Plant-based protein", icon: "🌱" },
-    { name: "Gluten Free", icon: "🌾" },
-    { name: "Non GMO Project", icon: "🦋" },
-    { name: "Source of Fiber", icon: "💚" },
-    { name: "No Nuts", icon: "🥜" },
   ];
 
   return (
@@ -82,7 +69,7 @@ export default function ProductPage() {
         </div>
       </main>
       <div className="flex h-fit w-full justify-center-safe bg-white bg-gradient-to-br py-16">
-        <div className="container max-w-7xl px-6">
+        <div className="container px-6">
           <h2 className="mb-8 text-5xl font-bold text-gray-800">
             Menu yang ditawarkan
           </h2>
@@ -90,9 +77,9 @@ export default function ProductPage() {
             {relatedProducts.map((product, index) => (
               <div
                 key={index}
-                className="overflow-hidden rounded-2xl bg-white text-red-900 shadow-lg"
+                className="relative flex h-100 flex-col items-center-safe overflow-hidden rounded-2xl text-red-900 shadow-lg"
               >
-                <div className="relative mb-4 flex h-48 items-center justify-center rounded-xl bg-orange-400">
+                <div className="relative mb-4 flex h-80 w-80 items-center justify-center overflow-auto rounded-xl bg-orange-400">
                   {product.img ? (
                     <Image
                       src={product.img}
@@ -101,13 +88,13 @@ export default function ProductPage() {
                       className="object-cover"
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-gray-200 text-gray-500">
+                    <div className="flex h-full w-full items-center justify-center text-gray-500">
                       No image available
                     </div>
                   )}
                 </div>
 
-                <div className="flex flex-col items-center justify-between p-4">
+                <div className="hover: flex flex-col items-center p-4 text-red-600">
                   <h3 className="mb-1 text-lg font-bold">{product.name}</h3>
                   <span className="text-xl font-bold">Rp {product.price}</span>
                 </div>

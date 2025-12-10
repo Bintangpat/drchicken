@@ -1,5 +1,5 @@
 "use client";
-import { motion, useInView, animate } from "framer-motion";
+import { useInView, animate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 function Counter({ from = 0, to = 12000, duration = 2 }) {
@@ -57,7 +57,7 @@ export default function Valuecv() {
         <div className="absolute hidden h-1 w-16 rounded-2xl bg-neutral-300 sm:flex sm:h-12 sm:w-1 md:h-16" />
         <div className="flex flex-col items-center sm:items-start">
           <p className="text-3xl font-medium text-black md:text-5xl">
-            <Counter to={4} duration={2} />
+            <Counter to={2} duration={2} />
           </p>
           <p className="text-center text-lg font-medium text-black sm:text-right md:text-xl">
             Partner Kerjasama

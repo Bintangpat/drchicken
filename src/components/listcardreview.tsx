@@ -1,11 +1,12 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
   motion,
   useMotionValue,
   animate,
   AnimationPlaybackControls,
 } from "framer-motion";
+
 import Cardreview from "@/components/cardreview";
 import { cardreviewdata } from "@/data/reviewcard";
 
@@ -38,28 +39,29 @@ export default function CardList() {
   }, []);
 
   // helper untuk memulai/lanjutkan loop dari posisi `from`
-  const startLoopFrom = (from = 0) => {
-    if (!oneWidth || oneWidth === 0) return;
+  // ✅ pakai useCallback supaya tidak bikin warning
+  const startLoopFrom = useCallback(
+    (from = 0) => {
+      if (!oneWidth || oneWidth === 0) return;
 
-    const target = -oneWidth;
-    const remaining = Math.abs(target - from); // sisa jarak (px)
-    const speed = oneWidth / FULL_DURATION; // px per second
-    const duration = remaining / speed; // detik untuk menyelesaikan sisa
+      const target = -oneWidth;
+      const remaining = Math.abs(target - from);
+      const speed = oneWidth / FULL_DURATION;
+      const duration = remaining / speed;
 
-    // stop animasi sebelumnya jika ada
-    animRef.current?.stop?.();
+      animRef.current?.stop?.();
 
-    // animate() mengembalikan kontrol yang punya .stop()
-    animRef.current = animate(x, target, {
-      duration,
-      ease: "linear",
-      onComplete: () => {
-        // pulihkan ke 0 dan ulangi loop penuh
-        x.set(0);
-        startLoopFrom(0);
-      },
-    });
-  };
+      animRef.current = animate(x, target, {
+        duration,
+        ease: "linear",
+        onComplete: () => {
+          x.set(0);
+          startLoopFrom(0);
+        },
+      });
+    },
+    [oneWidth, x], // dependency aman
+  );
 
   // start otomatis saat width sudah tersedia
   useEffect(() => {
@@ -69,7 +71,7 @@ export default function CardList() {
       clearTimeout(t);
       animRef.current?.stop?.();
     };
-  }, [oneWidth]);
+  }, [startLoopFrom]);
 
   const handleHoverStart = () => {
     animRef.current?.stop?.(); // freeze di posisi sekarang
