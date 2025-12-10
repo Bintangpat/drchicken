@@ -59,7 +59,7 @@ export default function CardList() {
         },
       });
     },
-    [oneWidth, x], // FULL_DURATION is a constant, so it's fine to omit
+    [oneWidth, x],
   );
 
   // start otomatis saat width sudah tersedia
@@ -70,7 +70,7 @@ export default function CardList() {
       clearTimeout(t);
       animRef.current?.stop?.();
     };
-  }, [startLoopFrom]); // ✅ Fixed dependency
+  }, [startLoopFrom]); // ✅ PERBAIKAN: Dependency ditambahkan di sini
 
   const handleHoverStart = () => {
     animRef.current?.stop?.(); // freeze di posisi sekarang

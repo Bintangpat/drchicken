@@ -1,4 +1,5 @@
 "use client";
+// ✅ PERBAIKAN: Hapus 'motion' dari import karena tidak dipakai
 import { useInView, animate } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
